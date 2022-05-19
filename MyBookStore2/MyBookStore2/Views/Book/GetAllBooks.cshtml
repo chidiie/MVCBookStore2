@@ -1,19 +1,26 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model IEnumerable<BookModel>
+
 @{
+    ViewData["Title"] = "All Books";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetAllBooks</title>
-</head>
-<body>
-    <h1>All book list</h1>
-    <button>Click me</button>
-</body>
-</html>
+<div class="container">
+    <h3 class="h3">All books</h3>
+    <div class="row">
+
+        @foreach (var book in Model)
+        {
+            <div class="col-md-4">
+                <partial name="_bookThumbnail" model="@book" />
+            </div>
+        }
+
+
+    </div>
+</div>
 
